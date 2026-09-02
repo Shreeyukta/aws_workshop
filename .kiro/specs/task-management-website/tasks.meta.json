@@ -1,0 +1,36 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Initialise Vite + React + TypeScript project, install and configure Tailwind CSS, React Router v6, Vitest, React Testing Library, fast-check, and Playwright": [
+      {
+        "executionId": "0cfd01bd-cd19-4adb-8b6e-a72ecbdd60bd",
+        "chatSessionId": "sess_bb346c27-746f-48b5-8bc8-bd563d1423b9",
+        "timestamp": 1788331949990
+      },
+      {
+        "executionId": "0cfd01bd-cd19-4adb-8b6e-a72ecbdd60bd",
+        "chatSessionId": "sess_bb346c27-746f-48b5-8bc8-bd563d1423b9",
+        "timestamp": 1788332636668
+      }
+    ],
+    "1.2 Define all shared TypeScript interfaces and enum-like string literals in `src/types.ts`": [
+      {
+        "executionId": "0cfd01bd-cd19-4adb-8b6e-a72ecbdd60bd",
+        "chatSessionId": "sess_bb346c27-746f-48b5-8bc8-bd563d1423b9",
+        "timestamp": 1788331954322
+      },
+      {
+        "executionId": "0cfd01bd-cd19-4adb-8b6e-a72ecbdd60bd",
+        "chatSessionId": "sess_bb346c27-746f-48b5-8bc8-bd563d1423b9",
+        "timestamp": 1788332641702
+      }
+    ],
+    "1. Project scaffolding and shared types": [
+      {
+        "executionId": "0cfd01bd-cd19-4adb-8b6e-a72ecbdd60bd",
+        "chatSessionId": "sess_bb346c27-746f-48b5-8bc8-bd563d1423b9",
+        "timestamp": 1788332641782
+      }
+    ]
+  }
+}
