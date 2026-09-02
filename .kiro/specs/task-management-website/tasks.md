@@ -21,8 +21,8 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 
 ---
 
-- [ ] 2. Validator module
-  - [ ] 2.1 Implement all pure validator functions in `src/validator.ts`
+- [x] 2. Validator module
+  - [x] 2.1 Implement all pure validator functions in `src/validator.ts`
     - `validateTaskTitle`, `validateListName`, `validateDueDate`, `validateStatus`, `validatePriority`
     - Reject empty/whitespace-only titles and list names; reject malformed ISO dates; reject unknown enum values
     - _Requirements: 1.4, 2.5, 4.3_
