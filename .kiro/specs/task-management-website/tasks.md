@@ -172,8 +172,8 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 
 ---
 
-- [ ] 7. Task form component
-  - [ ] 7.1 Implement `<TaskForm>` in `src/components/TaskForm.tsx`
+- [x] 7. Task form component
+  - [x] 7.1 Implement `<TaskForm>` in `src/components/TaskForm.tsx`
     - Shared create/edit form: title (required), description, status, priority, due date, list selector
     - Inline validation via `Validator`; error messages adjacent to fields
     - Submits via `addTask` or `updateTask` from `useTaskStore`; no page reload on success
