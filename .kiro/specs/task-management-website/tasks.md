@@ -152,7 +152,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Displays three status count chips (To Do / In Progress / Done) from `getSummary`
     - _Requirements: 3.3, 4.4_
 
-  - [ ] 6.5 Implement `<FilterSortBar>` in `src/components/FilterSortBar.tsx`
+  - [x] 6.5 Implement `<FilterSortBar>` in `src/components/FilterSortBar.tsx`
     - Controlled dropdowns for status filter, priority filter, due-date filter, and sort key/direction
     - Dispatches `TaskFilter` / `TaskSort` changes to parent via callbacks
     - _Requirements: 3.4, 3.5_
