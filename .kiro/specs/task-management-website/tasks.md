@@ -142,7 +142,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Shows the prompt to create a first task when there are no tasks
     - _Requirements: 3.6_
 
-  - [ ] 6.3 Implement `<TaskCard>` in `src/components/TaskCard.tsx`
+  - [x] 6.3 Implement `<TaskCard>` in `src/components/TaskCard.tsx`
     - Renders title, status badge, priority badge, due date chip, edit link, delete button
     - Applies strikethrough + muted Tailwind classes when `status === "Done"`
     - Min touch target 44×44 CSS px on interactive elements
