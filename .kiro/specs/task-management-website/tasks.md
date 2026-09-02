@@ -58,7 +58,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 ---
 
 - [ ] 4. State store — useTaskStore
-  - [ ] 4.1 Implement the reducer in `src/store/reducer.ts`
+  - [x] 4.1 Implement the reducer in `src/store/reducer.ts`
     - Action types: `ADD_TASK`, `UPDATE_TASK`, `DELETE_TASK`, `ADD_LIST`, `RENAME_LIST`, `DELETE_LIST`
     - Enforce defaults (`status → "To Do"`, `priority → "Medium"`, `listId → Inbox id`) on `ADD_TASK`
     - _Requirements: 2.1, 2.2, 2.3, 4.1, 4.2, 4.4, 4.5, 5.2, 6.1_
