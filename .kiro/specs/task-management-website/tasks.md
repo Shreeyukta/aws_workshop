@@ -126,7 +126,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Tag: `Feature: task-management-website, Property 10: List CRUD invariants`
     - _Requirements: 6.1_
 
-- [ ] 5. Checkpoint — core logic tests
+- [x] 5. Checkpoint — core logic tests
   - Ensure all Validator, storage, reducer, and query tests pass before proceeding to UI. Ask the user if any issues arise.
 
 ---

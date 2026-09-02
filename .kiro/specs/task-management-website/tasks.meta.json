@@ -107,6 +107,13 @@
         "chatSessionId": "sess_33cac778-fdca-493e-8eb2-e2c76c6fe4e9",
         "timestamp": 1788335242219
       }
+    ],
+    "5. Checkpoint — core logic tests": [
+      {
+        "executionId": "64649355-5f84-437c-a234-2461520433bb",
+        "chatSessionId": "sess_b0492bd8-75c9-4036-a651-1c71980e1701",
+        "timestamp": 1788335441946
+      }
     ]
   }
 }
