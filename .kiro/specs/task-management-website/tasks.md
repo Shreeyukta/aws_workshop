@@ -188,7 +188,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 ---
 
 - [ ] 8. Page views and routing
-  - [ ] 8.1 Implement `src/App.tsx` with React Router v6 routes
+  - [x] 8.1 Implement `src/App.tsx` with React Router v6 routes
     - `/` → redirect to `/dashboard`
     - `/dashboard` → `<DashboardPage>`
     - `/lists/:listId` → `<ListPage>`
