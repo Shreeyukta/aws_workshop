@@ -197,7 +197,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Wrap the router with `TaskStoreContext` provider
     - _Requirements: 3.1, 6.3_
 
-  - [ ] 8.2 Implement `<DashboardPage>` in `src/pages/DashboardPage.tsx`
+  - [x] 8.2 Implement `<DashboardPage>` in `src/pages/DashboardPage.tsx`
     - Renders `<DashboardSummary>`, `<FilterSortBar>`, and a list of `<TaskCard>` for all tasks (respecting active filter/sort)
     - Renders `<EmptyState>` when there are no tasks
     - Single-column layout on viewports < 768 px (Tailwind responsive classes)
