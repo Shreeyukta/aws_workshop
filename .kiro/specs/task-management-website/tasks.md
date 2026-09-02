@@ -39,8 +39,8 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 
 ---
 
-- [ ] 3. localStorage helpers
-  - [ ] 3.1 Implement `src/storage.ts` — `loadState(): AppState` and `saveState(state: AppState): void`
+- [x] 3. localStorage helpers
+  - [x] 3.1 Implement `src/storage.ts` — `loadState(): AppState` and `saveState(state: AppState): void`
     - Wrap reads in try/catch; return fresh default state (empty tasks, one Inbox list) on parse failure
     - Catch write failures (quota exceeded) and emit a custom event for toast display
     - _Requirements: 7.1_
