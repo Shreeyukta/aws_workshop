@@ -248,6 +248,18 @@
         "chatSessionId": "sess_02c4ad7c-558a-41fa-b2e6-38717b6234e9",
         "timestamp": 1788337630109
       }
+    ],
+    "8.4 Implement `<NewTaskPage>` in `src/pages/NewTaskPage.tsx`": [
+      {
+        "executionId": "1104572b-6fa2-4677-b925-4bd654327222",
+        "chatSessionId": "sess_c16ba977-a6c5-4263-bf6a-ef883dfc1fb6",
+        "timestamp": 1788337700595
+      },
+      {
+        "executionId": "1104572b-6fa2-4677-b925-4bd654327222",
+        "chatSessionId": "sess_c16ba977-a6c5-4263-bf6a-ef883dfc1fb6",
+        "timestamp": 1788337766299
+      }
     ]
   }
 }

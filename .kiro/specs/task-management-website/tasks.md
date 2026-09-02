@@ -208,7 +208,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Renders `<EmptyState>` if list has no tasks or list id is unknown
     - _Requirements: 6.3_
 
-  - [ ] 8.4 Implement `<NewTaskPage>` in `src/pages/NewTaskPage.tsx`
+  - [x] 8.4 Implement `<NewTaskPage>` in `src/pages/NewTaskPage.tsx`
     - Renders `<TaskForm>` in create mode; on success navigates back to Dashboard
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.6_
 
