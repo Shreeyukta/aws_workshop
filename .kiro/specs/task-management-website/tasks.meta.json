@@ -81,6 +81,13 @@
         "chatSessionId": "sess_f640ad2b-4586-44ca-903d-a9378c3e929e",
         "timestamp": 1788334399004
       }
+    ],
+    "4.2 Implement query helpers in `src/store/queries.ts`": [
+      {
+        "executionId": "e766ef84-115f-4fa0-8d85-97145ee01c6b",
+        "chatSessionId": "sess_6a868baf-92df-4b6b-a93c-5af1e08686fd",
+        "timestamp": 1788334724954
+      }
     ]
   }
 }
