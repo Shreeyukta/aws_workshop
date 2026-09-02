@@ -1,4 +1,4 @@
-import { AppState, Task, TaskList, NewTaskInput, TaskInput, Status, Priority } from '../types';
+import { AppState, Task, TaskList, NewTaskInput, TaskInput } from '../types';
 
 // Action types
 export const ADD_TASK = 'ADD_TASK';

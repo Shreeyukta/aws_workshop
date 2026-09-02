@@ -4,7 +4,6 @@ import {
   TaskFilter,
   TaskSort,
   StatusSummary,
-  Priority,
 } from "../types";
 
 /**

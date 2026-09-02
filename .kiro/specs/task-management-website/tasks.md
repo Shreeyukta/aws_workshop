@@ -57,7 +57,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 
 ---
 
-- [ ] 4. State store — useTaskStore
+- [x] 4. State store — useTaskStore
   - [x] 4.1 Implement the reducer in `src/store/reducer.ts`
     - Action types: `ADD_TASK`, `UPDATE_TASK`, `DELETE_TASK`, `ADD_LIST`, `RENAME_LIST`, `DELETE_LIST`
     - Enforce defaults (`status → "To Do"`, `priority → "Medium"`, `listId → Inbox id`) on `ADD_TASK`
@@ -69,7 +69,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - `getListById(lists, id)` — find list by id
     - _Requirements: 3.3, 3.4, 3.5, 6.3_
 
-  - [ ] 4.3 Implement `useTaskStore` hook and `TaskStoreContext` in `src/store/useTaskStore.ts`
+  - [x] 4.3 Implement `useTaskStore` hook and `TaskStoreContext` in `src/store/useTaskStore.ts`
     - Wire `useReducer` + `useEffect` sync to `localStorage` on every state change
     - Expose action dispatchers and query helpers; provide context at app root
     - _Requirements: 2.1, 2.6, 4.2, 4.4, 5.2, 6.1_

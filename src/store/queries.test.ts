@@ -4,9 +4,6 @@ import { getTasks, getSummary, getListById } from "./queries";
 import {
   Task,
   TaskList,
-  TaskFilter,
-  TaskSort,
-  StatusSummary,
 } from "../types";
 
 // ============================================================================
@@ -53,9 +50,9 @@ const taskArb = fc
     id,
     listId,
     title,
-    status,
-    priority,
-    dueDate,
+    status: status as "To Do" | "In Progress" | "Done",
+    priority: priority as "Low" | "Medium" | "High",
+    dueDate: dueDate ?? undefined,
     createdAt,
     updatedAt,
   }));
@@ -758,7 +755,7 @@ describe("getTasks — property-based tests", () => {
   it("**Validates: Requirements 3.4, 3.5** — getTasks with filter returns tasks where all match filter criteria", () => {
     fc.assert(
       fc.property(fc.array(taskArb), statusArb, (tasks, status) => {
-        const result = getTasks(tasks, { status });
+        const result = getTasks(tasks, { status: status as "To Do" | "In Progress" | "Done" });
         result.forEach((task) => {
           expect(task.status).toBe(status);
         });
@@ -769,7 +766,7 @@ describe("getTasks — property-based tests", () => {
   it("**Validates: Requirements 3.4** — getTasks with priority filter returns only tasks with that priority", () => {
     fc.assert(
       fc.property(fc.array(taskArb), priorityArb, (tasks, priority) => {
-        const result = getTasks(tasks, { priority });
+        const result = getTasks(tasks, { priority: priority as "Low" | "Medium" | "High" });
         result.forEach((task) => {
           expect(task.priority).toBe(priority);
         });

@@ -1,4 +1,4 @@
-import { AppState, TaskList } from './types';
+import { AppState } from './types';
 
 const STORAGE_KEY = 'task-app-state';
 
