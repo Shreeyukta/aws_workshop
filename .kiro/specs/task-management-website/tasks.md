@@ -187,7 +187,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 
 ---
 
-- [ ] 8. Page views and routing
+- [x] 8. Page views and routing
   - [x] 8.1 Implement `src/App.tsx` with React Router v6 routes
     - `/` → redirect to `/dashboard`
     - `/dashboard` → `<DashboardPage>`
@@ -212,7 +212,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Renders `<TaskForm>` in create mode; on success navigates back to Dashboard
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.6_
 
-  - [ ] 8.5 Implement `<EditTaskPage>` in `src/pages/EditTaskPage.tsx`
+  - [x] 8.5 Implement `<EditTaskPage>` in `src/pages/EditTaskPage.tsx`
     - Loads task by `taskId` param; renders `<EmptyState>` (not found) if absent
     - Renders `<TaskForm>` in edit mode pre-populated with current data
     - On success navigates back; delete button triggers `<ConfirmDialog>` then `deleteTask`
