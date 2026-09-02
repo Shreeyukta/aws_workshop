@@ -1,19 +1,167 @@
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useTaskStore } from '../store/useTaskStore';
+import { DashboardSummary } from '../components/DashboardSummary';
+import { FilterSortBar } from '../components/FilterSortBar';
+import { TaskCard } from '../components/TaskCard';
+import { EmptyState } from '../components/EmptyState';
+import { ConfirmDialog } from '../components/ConfirmDialog';
+import { Sidebar } from '../components/Sidebar';
+import type { TaskFilter, TaskSort } from '../types';
 
 /**
- * ListPage — stub placeholder.
- * Full implementation follows in task 8.3.
+ * ListPage — scoped task view for a single TaskList.
+ *
+ * Mirrors the DashboardPage layout but pre-seeds the `listId` filter so only
+ * tasks belonging to the current list are shown.  Renders an EmptyState when:
+ *  - the listId param does not match any known list (list not found), or
+ *  - the list exists but contains no tasks after applying the active filter.
+ *
+ * Layout:
+ *  ┌──────────────┬────────────────────────────┐
+ *  │   Sidebar    │   Main content area         │
+ *  │  (≥ md)      │  Header + Summary + Filters │
+ *  │              │  Task grid (1→2→3 cols)     │
+ *  └──────────────┴────────────────────────────┘
+ *
+ * Requirements: 6.3
  */
 function ListPage() {
   const { listId } = useParams<{ listId: string }>();
+  const { queries, actions } = useTaskStore();
+  const navigate = useNavigate();
 
+  // ── Filter / sort state (listId is always locked to the route param) ─────
+  const [filter, setFilter] = useState<TaskFilter>({});
+  const [sort, setSort] = useState<TaskSort>({ by: 'createdAt', order: 'asc' });
+
+  // ── Deletion confirmation state ──────────────────────────────────────────
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  // ── Resolve the list — undefined means "not found" ───────────────────────
+  const list = listId ? queries.getListById(listId) : undefined;
+
+  // ── Derived data (scoped to this list) ───────────────────────────────────
+  const summary = queries.getSummary();
+  const tasks = list
+    ? queries.getTasks({ ...filter, listId: list.id }, sort)
+    : [];
+
+  // ── Handlers ─────────────────────────────────────────────────────────────
+  function handleDeleteRequest(id: string) {
+    setDeletingId(id);
+  }
+
+  function handleDeleteConfirm() {
+    if (deletingId) {
+      actions.deleteTask(deletingId);
+    }
+    setDeletingId(null);
+  }
+
+  function handleDeleteCancel() {
+    setDeletingId(null);
+  }
+
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <h1 className="text-2xl font-bold text-gray-900">List</h1>
-      <p className="mt-2 text-gray-600">
-        List ID: <code className="rounded bg-gray-100 px-1 py-0.5 text-sm">{listId}</code>
-      </p>
-      <p className="mt-1 text-gray-600">Full implementation coming in task 8.3.</p>
+    <div className="flex min-h-screen bg-gray-50">
+      {/* ── Sidebar — hidden on mobile, shown from md breakpoint ── */}
+      <aside className="hidden w-60 shrink-0 border-r border-gray-200 bg-gray-50 md:block">
+        <Sidebar />
+      </aside>
+
+      {/* ── Main content area ── */}
+      <main
+        className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 lg:px-8"
+        aria-label={list ? `${list.name} task list` : 'Task list'}
+      >
+        {/* ── List not found ── */}
+        {!list ? (
+          <EmptyState
+            message="This list doesn't exist or has been deleted."
+            ctaLabel="Back to Dashboard"
+            onCta={() => navigate('/dashboard')}
+          />
+        ) : (
+          <>
+            {/* ── Page header ── */}
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">{list.name}</h1>
+                <p className="mt-1 text-sm text-gray-500">
+                  Tasks in this list.
+                </p>
+              </div>
+
+              {/* New Task button — pre-selects this list via query param */}
+              <Link
+                to={`/tasks/new?listId=${list.id}`}
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                aria-label={`Create new task in ${list.name}`}
+              >
+                {/* Plus icon */}
+                <svg
+                  className="h-4 w-4 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                </svg>
+                New Task
+              </Link>
+            </div>
+
+            {/* ── Status summary chips ── */}
+            <section aria-label="Task status summary" className="mb-5">
+              <DashboardSummary summary={summary} />
+            </section>
+
+            {/* ── Filter / sort bar ── */}
+            <section aria-label="Filter and sort" className="mb-6">
+              <FilterSortBar
+                filter={filter}
+                sort={sort}
+                onFilterChange={setFilter}
+                onSortChange={setSort}
+              />
+            </section>
+
+            {/* ── Task list or empty state ── */}
+            {tasks.length === 0 ? (
+              <EmptyState
+                message="No tasks in this list yet. Create your first task to get started."
+                ctaLabel="+ New Task"
+                onCta={() => navigate(`/tasks/new?listId=${list.id}`)}
+              />
+            ) : (
+              <section aria-label="Task list">
+                {/* Single column on mobile, 2-col on md, 3-col on lg */}
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {tasks.map((task) => (
+                    <TaskCard
+                      key={task.id}
+                      task={task}
+                      onDelete={handleDeleteRequest}
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
+          </>
+        )}
+      </main>
+
+      {/* ── Delete confirmation dialog ── */}
+      {deletingId && (
+        <ConfirmDialog
+          message="Delete this task? This action cannot be undone."
+          onConfirm={handleDeleteConfirm}
+          onCancel={handleDeleteCancel}
+        />
+      )}
     </div>
   );
 }

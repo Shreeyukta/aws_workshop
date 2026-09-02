@@ -203,7 +203,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Single-column layout on viewports < 768 px (Tailwind responsive classes)
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 8.1, 8.2_
 
-  - [ ] 8.3 Implement `<ListPage>` in `src/pages/ListPage.tsx`
+  - [x] 8.3 Implement `<ListPage>` in `src/pages/ListPage.tsx`
     - Same structure as `<DashboardPage>` but `getTasks` receives `{ listId }` filter
     - Renders `<EmptyState>` if list has no tasks or list id is unknown
     - _Requirements: 6.3_
