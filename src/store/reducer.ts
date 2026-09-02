@@ -13,7 +13,7 @@ export type Action =
   | { type: typeof ADD_TASK; payload: NewTaskInput }
   | { type: typeof UPDATE_TASK; payload: { id: string; updates: TaskInput } }
   | { type: typeof DELETE_TASK; payload: { id: string } }
-  | { type: typeof ADD_LIST; payload: { name: string } }
+  | { type: typeof ADD_LIST; payload: { id?: string; name: string } }
   | { type: typeof RENAME_LIST; payload: { id: string; name: string } }
   | { type: typeof DELETE_LIST; payload: { id: string } };
 
@@ -37,7 +37,7 @@ export function reducer(state: AppState, action: Action): AppState {
       return deleteTask(state, action.payload.id);
 
     case ADD_LIST:
-      return addList(state, action.payload.name);
+      return addList(state, action.payload.name, action.payload.id);
 
     case RENAME_LIST:
       return renameList(state, action.payload.id, action.payload.name);
@@ -131,11 +131,11 @@ function deleteTask(state: AppState, taskId: string): AppState {
 /**
  * Add a new list to the state.
  */
-function addList(state: AppState, name: string): AppState {
+function addList(state: AppState, name: string, id?: string): AppState {
   const now = new Date().toISOString();
 
   const newList: TaskList = {
-    id: crypto.randomUUID(),
+    id: id ?? crypto.randomUUID(),
     name,
     isInbox: false,
     createdAt: now,

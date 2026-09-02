@@ -109,10 +109,11 @@ export function TaskStoreProvider({ children }: TaskStoreProviderProps) {
     },
 
     addList(name: string): TaskList {
-      dispatch({ type: ADD_LIST, payload: { name } });
+      const id = crypto.randomUUID();
       const now = new Date().toISOString();
+      dispatch({ type: ADD_LIST, payload: { id, name } });
       return {
-        id: crypto.randomUUID(),
+        id,
         name,
         isInbox: false,
         createdAt: now,

@@ -223,12 +223,12 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - `<EditTaskPage>`: loads task data, delete flow triggers confirm dialog
     - _Requirements: 3.1, 3.6, 4.1, 5.1_
 
-- [ ] 9. Checkpoint — all unit and component tests
+- [x] 9. Checkpoint — all unit and component tests
   - Run `vitest --run` and confirm all tests pass. Ask the user if any failures arise.
 
 ---
 
-- [ ] 10. Playwright end-to-end tests
+- [x] 10. Playwright end-to-end tests
   - [ ] 10.1 Write E2E tests for core task flows in `e2e/tasks.spec.ts`
     - Create task → verify appears on dashboard
     - Edit task status → verify summary counts update immediately
@@ -255,7 +255,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - ARIA labels on icon-only buttons verified via attribute checks
     - _Requirements: 8.1, 8.3_
 
-- [ ] 11. Final checkpoint — full test suite
+- [x] 11. Final checkpoint — full test suite
   - Run `vitest --run` and `playwright test`. Ensure all tests pass. Ask the user if any issues arise.
 
 ---

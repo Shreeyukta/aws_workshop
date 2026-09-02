@@ -22,6 +22,11 @@ export interface TaskFormProps {
    * Defaults to "/dashboard".
    */
   onSuccessNavigateTo?: string;
+  /**
+   * Optional default list ID to pre-select in the list selector (create mode only).
+   * Ignored when existingTask is provided.
+   */
+  defaultListId?: string;
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -68,7 +73,7 @@ interface FormErrors {
  *
  * Requirements: 2.1, 2.4, 2.5, 2.6, 4.1, 4.2, 4.3, 4.5
  */
-export function TaskForm({ existingTask, onSuccessNavigateTo = '/dashboard' }: TaskFormProps) {
+export function TaskForm({ existingTask, onSuccessNavigateTo = '/dashboard', defaultListId }: TaskFormProps) {
   const { state, actions } = useTaskStore();
   const navigate = useNavigate();
 
@@ -81,7 +86,7 @@ export function TaskForm({ existingTask, onSuccessNavigateTo = '/dashboard' }: T
   const [status, setStatus]           = useState<Status>(existingTask?.status ?? 'To Do');
   const [priority, setPriority]       = useState<Priority>(existingTask?.priority ?? 'Medium');
   const [dueDate, setDueDate]         = useState(existingTask?.dueDate ?? '');
-  const [listId, setListId]           = useState(existingTask?.listId ?? (state.lists.find((l) => l.isInbox)?.id ?? ''));
+  const [listId, setListId]           = useState(existingTask?.listId ?? defaultListId ?? (state.lists.find((l) => l.isInbox)?.id ?? ''));
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -209,7 +214,7 @@ export function TaskForm({ existingTask, onSuccessNavigateTo = '/dashboard' }: T
       {/* ── Description (optional) ── */}
       <div>
         <label htmlFor="task-description" className={LABEL_CLS}>
-          Description <span className="text-xs font-normal text-gray-400">(optional)</span>
+          Description <span className="text-xs font-normal text-gray-600">(optional)</span>
         </label>
         <textarea
           id="task-description"
@@ -290,7 +295,7 @@ export function TaskForm({ existingTask, onSuccessNavigateTo = '/dashboard' }: T
         {/* Due date */}
         <div>
           <label htmlFor="task-due-date" className={LABEL_CLS}>
-            Due date <span className="text-xs font-normal text-gray-400">(optional)</span>
+            Due date <span className="text-xs font-normal text-gray-600">(optional)</span>
           </label>
           <input
             id="task-due-date"
