@@ -148,7 +148,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Min touch target 44×44 CSS px on interactive elements
     - _Requirements: 3.2, 4.6, 8.3_
 
-  - [ ] 6.4 Implement `<DashboardSummary>` in `src/components/DashboardSummary.tsx`
+  - [x] 6.4 Implement `<DashboardSummary>` in `src/components/DashboardSummary.tsx`
     - Displays three status count chips (To Do / In Progress / Done) from `getSummary`
     - _Requirements: 3.3, 4.4_
 
