@@ -131,7 +131,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 
 ---
 
-- [ ] 6. Shared UI components
+- [x] 6. Shared UI components
   - [x] 6.1 Implement `<ConfirmDialog>` in `src/components/ConfirmDialog.tsx`
     - Props: `message`, `onConfirm`, `onCancel`; rendered as a modal overlay
     - Focus-trapped, keyboard-accessible (Escape → cancel, Enter → confirm)
@@ -157,7 +157,7 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
     - Dispatches `TaskFilter` / `TaskSort` changes to parent via callbacks
     - _Requirements: 3.4, 3.5_
 
-  - [ ] 6.6 Implement `<Sidebar>` in `src/components/Sidebar.tsx`
+  - [x] 6.6 Implement `<Sidebar>` in `src/components/Sidebar.tsx`
     - Lists all task lists; highlights active list
     - Inline "New list" input, rename in-place, delete button (hidden for Inbox)
     - _Requirements: 6.1, 6.2, 6.3_
