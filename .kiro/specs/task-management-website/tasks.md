@@ -132,12 +132,12 @@ A pure client-side SPA built with React + TypeScript. Implementation follows a b
 ---
 
 - [ ] 6. Shared UI components
-  - [ ] 6.1 Implement `<ConfirmDialog>` in `src/components/ConfirmDialog.tsx`
+  - [x] 6.1 Implement `<ConfirmDialog>` in `src/components/ConfirmDialog.tsx`
     - Props: `message`, `onConfirm`, `onCancel`; rendered as a modal overlay
     - Focus-trapped, keyboard-accessible (Escape → cancel, Enter → confirm)
     - _Requirements: 5.1, 6.4_
 
-  - [ ] 6.2 Implement `<EmptyState>` in `src/components/EmptyState.tsx`
+  - [x] 6.2 Implement `<EmptyState>` in `src/components/EmptyState.tsx`
     - Props: `message`, optional `ctaLabel` and `onCta`
     - Shows the prompt to create a first task when there are no tasks
     - _Requirements: 3.6_

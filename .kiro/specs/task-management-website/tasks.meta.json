@@ -114,6 +114,30 @@
         "chatSessionId": "sess_b0492bd8-75c9-4036-a651-1c71980e1701",
         "timestamp": 1788335441946
       }
+    ],
+    "6.1 Implement `<ConfirmDialog>` in `src/components/ConfirmDialog.tsx`": [
+      {
+        "executionId": "a15034e3-9459-459f-83b1-dd363a4c238d",
+        "chatSessionId": "sess_b8bca842-043a-4d0c-8c9d-e72d76705e29",
+        "timestamp": 1788335501760
+      },
+      {
+        "executionId": "a15034e3-9459-459f-83b1-dd363a4c238d",
+        "chatSessionId": "sess_b8bca842-043a-4d0c-8c9d-e72d76705e29",
+        "timestamp": 1788335609595
+      }
+    ],
+    "6.2 Implement `<EmptyState>` in `src/components/EmptyState.tsx`": [
+      {
+        "executionId": "f495f1a0-0230-43c6-9f99-fbb76b5e7f17",
+        "chatSessionId": "sess_380ce437-488d-4a0d-b1df-00780444df79",
+        "timestamp": 1788335666742
+      },
+      {
+        "executionId": "f495f1a0-0230-43c6-9f99-fbb76b5e7f17",
+        "chatSessionId": "sess_380ce437-488d-4a0d-b1df-00780444df79",
+        "timestamp": 1788335720620
+      }
     ]
   }
 }
